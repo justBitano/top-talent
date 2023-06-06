@@ -1,0 +1,115 @@
+﻿@model IEnumerable<TopTalentView.Models.Booking>
+
+@{
+    ViewData["Title"] = "Bookings Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Quản lý Booking</span>
+        </nav>
+    </div>
+</div>
+<div class="table-responsive">
+    <h1>
+        Quản lý Booking
+    </h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">Id</th>
+                <th scope="col">CreateDate</th>
+                <th scope="col">BookingStatus</th>
+                <th scope="col">Description</th>
+                <th scope="col">UserId</th>
+                <th scope="col">TalentId</th>
+                <th scope="col">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.BookingId</th>
+                        <td> @item.CreateDate</td>
+                        <td> @item.BookingStatus</td>
+                        <td>@item.Description</td>
+                        <td>@item.UserId</td>
+                        <td>@item.TalentId</td>
+                      
+                        <td>
+                            <a class="btn btn-primary m-r-5" asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
+                            <a class="btn btn-info  m-r-5" asp-action="Details" asp-route-id="@item.BookingId">Details</a> |
+                            <a class="btn btn-danger  m-r-5" asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*
+<h1>Quản lý Booking</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Talent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Talent.TalentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserDescription)
+            </td>
+            <td>
+                    <a class="btn btn-primary m-r-5" asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
+                    <a class="btn btn-info m-r-5" asp-action="Details" asp-route-id="@item.BookingId">Details</a> |
+                    <a class="btn btn-danger m-r-5" asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

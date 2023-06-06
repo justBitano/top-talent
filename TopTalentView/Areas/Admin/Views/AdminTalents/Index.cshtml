@@ -1,0 +1,128 @@
+﻿@model IEnumerable<TopTalentView.Models.Talent>
+
+@{
+    ViewData["Title"] = "Talent Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+           
+            <span class="breadcrumb-item active">Quản lý Talent</span>
+        </nav>
+    </div>
+</div>
+<div class="table-responsive">
+    <h1>
+        Quản lý Talent
+    </h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.TalentId</th>
+                        <td> @item.TalentEmail</td>
+                        <td> @item.TalentPassword</td>
+                        <td>@item.TalentName</td>
+                        <td>@item.TalentPhone</td>
+                        <td>@item.TalentAddress</td>
+                        <td>@item.TalentDescription</td>
+                        <td>@item.TalentStatus</td>
+                        <td>
+                            <a class="btn btn-primary m-r-5" asp-action="Edit" asp-route-id="@item.TalentId">Edit</a> |
+                            <a class="btn btn-info  m-r-5" asp-action="Details" asp-route-id="@item.TalentId">Details</a> |
+                            <a class="btn btn-danger  m-r-5" asp-action="Delete" asp-route-id="@item.TalentId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*<h1>Quản lý Talent</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TalentEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TalentPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TalentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TalentPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TalentAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TalentDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TalentStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TalentEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TalentPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TalentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TalentPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TalentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TalentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TalentStatus)
+            </td>
+            <td>
+                    <a class="btn btn-primary m-r-5" asp-action="Edit" asp-route-id="@item.TalentId">Edit</a> |
+                    <a class="btn btn-info m-r-5" asp-action="Details" asp-route-id="@item.TalentId">Details</a> |
+                    <a class="btn btn-danger m-r-5" asp-action="Delete" asp-route-id="@item.TalentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

@@ -1,0 +1,69 @@
+﻿@model TopTalentView.Models.Talent
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminTalents" asp-action="Index">Quản lý Talent</a>
+            <span class="breadcrumb-item active">Tạo mới</span>
+        </nav>
+    </div>
+</div>
+<h1>Create</h1>
+
+<h4>Talent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TalentEmail" class="control-label"></label>
+                <input asp-for="TalentEmail" class="form-control" />
+                <span asp-validation-for="TalentEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TalentPassword" class="control-label"></label>
+                <input asp-for="TalentPassword" class="form-control" />
+                <span asp-validation-for="TalentPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TalentName" class="control-label"></label>
+                <input asp-for="TalentName" class="form-control" />
+                <span asp-validation-for="TalentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TalentPhone" class="control-label"></label>
+                <input asp-for="TalentPhone" class="form-control" />
+                <span asp-validation-for="TalentPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TalentAddress" class="control-label"></label>
+                <input asp-for="TalentAddress" class="form-control" />
+                <span asp-validation-for="TalentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TalentDescription" class="control-label"></label>
+                <input asp-for="TalentDescription" class="form-control" />
+                <span asp-validation-for="TalentDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TalentStatus" class="control-label"></label>
+                <input asp-for="TalentStatus" class="form-control" />
+                <span asp-validation-for="TalentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
